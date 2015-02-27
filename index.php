@@ -47,6 +47,7 @@
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <br /><br />
         <pre><?php
 
           if ( isset( $_POST['input'] ) ) {
