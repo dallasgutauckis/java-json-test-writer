@@ -86,6 +86,10 @@
                   printAssertEquals( $keyPath, $key, '"' . $value . '"' );
                   break;
                 case 'array':
+                  foreach ( $value as $index => $itemValue ) {
+                    printAssert( $key . '.get(' . $index . ')', $itemValue, $ucWords, $keyPath );
+                  }
+                  break;
                 case 'object':
                   $newIndex = count( $keyPath );
                   $keyPath[$newIndex] = $key;
@@ -95,7 +99,7 @@
                   }
 
                   unset( $keyPath[$newIndex] );
-                  
+                  break;
               }
 
           }
