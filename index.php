@@ -4,6 +4,7 @@
   <body>
     <form method="post">
       <label for="variable">Variable name: <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/></label><br />
+      <label for="ucWords">Convert underscores to lowerCamelCase? <input type="checkbox" name="ucWords" value="yeah" /></label>
       <label for="input">JSON</label><br />
       <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
       <input type="submit" />
@@ -12,6 +13,8 @@
 
       if ( isset( $_POST['input'] ) ) {
         $src = json_decode( $_POST['input'] );
+        $ucWords = $_POST['ucWords'] == "yeah";
+        var_dump( $ucWords, $_POST['ucWords'] );
         printAssert( $_POST['variable'], $src );
       }
 
