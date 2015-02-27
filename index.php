@@ -108,7 +108,7 @@
                   $keyPath[$newIndex] = $key;
 
                   foreach ( $value as $itemKey => $itemValue ) {
-                    printAssert( $itemKey, $itemValue, $ucWords, $keyPath );
+                    printAssert( $itemKey, $itemValue, $ucWords, $beanify, $keyPath );
                   }
 
                   unset( $keyPath[$newIndex] );
