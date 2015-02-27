@@ -13,18 +13,20 @@
           <fieldset>
             <div class="row">
               <div class="span3">
-                <label for="variable">Variable name: <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/></label><br />
+                <h3>Variable name</h3>
+                <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/>
               </div>
             </div>
             <div class="row">
               <div class="span6">
-                <label for="ucWords">Convert underscores to lowerCamelCase? <input type="checkbox" name="ucWords" value="yeah" /></label><br />
+                <h3>Convert underscore to lowerCamelCase?</h3>
+                <input type="checkbox" name="ucWords" value="yeah" />
               </div>
             </div>
             <div class="row">
               <div class="span10">
-                <label for="input">JSON</label><br />
-                <textarea rows="20" class="span10" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
+                <h3>JSON</h3>
+                <textarea rows="20" class="span10" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea>
               </div>
             </div>
             <div class="actions">
