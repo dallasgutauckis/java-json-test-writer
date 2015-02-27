@@ -3,10 +3,12 @@
   </head>
   <body>
     <form method="post">
-      <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) { echo $_POST['variable']; } ?>"/>
-      <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea>
+      <label for="variable">Variable name: <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/></label><br />
+      <label for="input">JSON</label><br />
+      <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
       <input type="submit" />
     </form>
+    <pre>
     <?php
 
 
@@ -61,6 +63,6 @@
 
       }
     ?>
-
+    </pre>
   </body>
 </html>
