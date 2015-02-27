@@ -18,7 +18,7 @@
               </div>
               <div class="span10">
                 <h3>Convert underscore to lowerCamelCase?</h3>
-                <input type="checkbox" name="ucWords" value="yeah" />
+                <input type="checkbox" name="ucWords" value="yeah" <?php if ( isset( $_POST['ucWords'] ) && $_POST['ucWords'] == 'yeah' ) { echo "checked=\"1\""; } ?>/>
               </div>
             </div>
             <div class="row">
