@@ -3,7 +3,7 @@
   </head>
   <body>
     <form method="post">
-      <input type="text" name="variable" />
+      <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) { echo $_POST['variable']; } ?>"/>
       <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea>
       <input type="submit" />
     </form>
@@ -16,7 +16,7 @@
       }
 
       function println( $text ) {
-        echo "        " . $test . "\r\n";
+        echo "        " . $text. "\r\n";
       }
 
       function getKeyPathString( $keyPath, $key ) {
