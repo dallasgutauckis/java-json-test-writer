@@ -11,11 +11,25 @@
         <em>by <a href="http://dallasgutauckis.com">Dallas Gutauckis</a></em>
         <form method="post">
           <fieldset>
-            <label for="variable">Variable name: <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/></label><br />
-            <label for="ucWords">Convert underscores to lowerCamelCase? <input type="checkbox" name="ucWords" value="yeah" /></label><br />
-            <label for="input">JSON</label><br />
-            <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
-            <input type="submit" />
+            <div class="row">
+              <div class="span3">
+                <label for="variable">Variable name: <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/></label><br />
+              </div>
+            </div>
+            <div class="row">
+              <div class="span6">
+                <label for="ucWords">Convert underscores to lowerCamelCase? <input type="checkbox" name="ucWords" value="yeah" /></label><br />
+              </div>
+            </div>
+            <div class="row">
+              <div class="span10">
+                <label for="input">JSON</label><br />
+                <textarea rows="20" class="span10" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
+              </div>
+            </div>
+            <div class="actions">
+              <input type="submit" name="submit" class="btn primary" value="Build" />
+            </div>
           </fieldset>
         </form>
         <pre><?php
