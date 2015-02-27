@@ -12,12 +12,10 @@
         <form method="post">
           <fieldset>
             <div class="row">
-              <div class="span10">
+              <div class="span4">
                 <h3>Variable name</h3>
                 <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/>
               </div>
-            </div>
-            <div class="row">
               <div class="span10">
                 <h3>Convert underscore to lowerCamelCase?</h3>
                 <input type="checkbox" name="ucWords" value="yeah" />
