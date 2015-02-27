@@ -14,8 +14,7 @@
       if ( isset( $_POST['input'] ) ) {
         $src = json_decode( $_POST['input'] );
         $ucWords = $_POST['ucWords'] == "yeah";
-        var_dump( $ucWords, $_POST['ucWords'] );
-        printAssert( $_POST['variable'], $src );
+        printAssert( $_POST['variable'], $src, $ucWords );
       }
 
       function println( $text ) {
@@ -30,7 +29,11 @@
         println( 'assertEquals(' . $value . ', ' . getKeyPathString( $keyPath, $key ) . ');' );
       }
 
-      function printAssert( $key, $value, $keyPath = null ) {
+      function printAssert( $key, $value, $ucWords, $keyPath = null ) {
+          if ( $ucWords ) {
+            $key = preg_replace( '/_(.?)/e',"strtoupper('$1')", $key ); 
+          }
+
           if ( $keyPath === null ) {
             $keyPath = array();
           }
@@ -56,8 +59,9 @@
               $keyPath[$newIndex] = $key;
 
               foreach ( $value as $itemKey => $itemValue ) {
-                printAssert( $itemKey, $itemValue, $keyPath );
+                printAssert( $itemKey, $itemValue, $ucWords, $keyPath );
               }
+
               unset( $keyPath[$newIndex] );
               
           }
