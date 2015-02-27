@@ -16,9 +16,15 @@
                 <h3>Variable name</h3>
                 <input type="text" name="variable" value="<?php if ( isset( $_POST['variable'] ) ) { echo $_POST['variable']; } ?>"/>
               </div>
+            </div>
+            <div class="row">
               <div class="span10">
                 <h3>Convert underscore to lowerCamelCase?</h3>
                 <input type="checkbox" name="ucWords" value="yeah" <?php if ( isset( $_POST['ucWords'] ) && $_POST['ucWords'] == 'yeah' ) { echo "checked=\"1\""; } ?>/>
+              </div>
+              <div class="span10">
+                <h3>Use bean notation (requires camelCase)</h3>
+                <input type="checkbox" name="beanify" value="yeah" <?php if ( isset( $_POST['beanify'] ) && $_POST['beanify'] == 'yeah' ) { echo "checked=\"1\""; } ?>/>
               </div>
             </div>
             <div class="row">
@@ -46,7 +52,8 @@
           if ( isset( $_POST['input'] ) ) {
             $src = json_decode( $_POST['input'] );
             $ucWords = $_POST['ucWords'] == "yeah";
-            printAssert( $_POST['variable'], $src, $ucWords );
+            $beanify = $_POST['beanify'] == 'yeah';
+            printAssert( $_POST['variable'], $src, $ucWords, $beanify );
           }
 
           function println( $text ) {
@@ -61,9 +68,13 @@
             println( 'assertEquals(' . $value . ', ' . getKeyPathString( $keyPath, $key ) . ');' );
           }
 
-          function printAssert( $key, $value, $ucWords, $keyPath = null ) {
-              if ( $ucWords ) {
+          function printAssert( $key, $value, $ucWords, $beanify, $keyPath = null ) {
+              if ( $ucWords || $beanify ) {
                 $key = preg_replace( '/_(.?)/e',"strtoupper('$1')", $key ); 
+              }
+
+              if ( $beanify ) {
+                $key = 'get' . ucwords( $key ) . '()';
               }
 
               if ( $keyPath === null ) {
@@ -80,14 +91,14 @@
                   printAssertEquals( $keyPath, $key, $value );
                   break;
                 case 'double':
-                  printAssertEquals( $keyPath, $key, $value . 'd' );
+                  println( 'assertEquals(' . $value . ', ' . getKeyPathString( $keyPath, $key ) . ', 0d);' );
                   break;
                 case 'string':
                   printAssertEquals( $keyPath, $key, '"' . $value . '"' );
                   break;
                 case 'array':
                   foreach ( $value as $index => $itemValue ) {
-                    printAssert( $key . '.get(' . $index . ')', $itemValue, $ucWords, $keyPath );
+                    printAssert( $key . '.get(' . $index . ')', $itemValue, $ucWords, $beanify, $keyPath );
                   }
                   break;
                 case 'object':
