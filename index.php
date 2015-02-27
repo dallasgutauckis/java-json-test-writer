@@ -9,15 +9,6 @@
       <div class="content">
         <h1>java-json-test-writer</h1>
         <em>by <a href="http://dallasgutauckis.com">Dallas Gutauckis</a></em>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- java-json-test-writer header -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-7874761747975813"
-             data-ad-slot="9345280686"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
         <form method="post">
           <fieldset>
             <div class="row">
@@ -41,6 +32,15 @@
             </div>
           </fieldset>
         </form>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- java-json-test-writer header -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-7874761747975813"
+             data-ad-slot="9345280686"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         <pre><?php
 
           if ( isset( $_POST['input'] ) ) {
