@@ -8,9 +8,7 @@
       <textarea rows="40" cols="120" name="input"><?php if ( isset( $_POST['input'] ) ) { echo $_POST['input']; } ?></textarea><br />
       <input type="submit" />
     </form>
-    <pre>
-    <?php
-
+    <pre><?php
 
       if ( isset( $_POST['input'] ) ) {
         $src = json_decode( $_POST['input'] );
@@ -18,7 +16,7 @@
       }
 
       function println( $text ) {
-        echo "        " . $text. "\r\n";
+        echo $text. "\r\n";
       }
 
       function getKeyPathString( $keyPath, $key ) {
