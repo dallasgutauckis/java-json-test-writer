@@ -69,11 +69,13 @@
           }
 
           function printAssert( $key, $value, $ucWords, $beanify, $keyPath = null ) {
-              if ( $ucWords || $beanify ) {
+              $localBeanify = $beanify && $keyPath !== null;
+
+              if ( $ucWords || $localBeanify ) {
                 $key = preg_replace( '/_(.?)/e',"strtoupper('$1')", $key ); 
               }
 
-              if ( $beanify ) {
+              if ( $localBeanify ) {
                 $key = 'get' . ucwords( $key ) . '()';
               }
 
