@@ -87,6 +87,7 @@
               switch ( gettype( $value ) ) {
                 case 'NULL':
                   println( 'assertNull(' . getKeyPathString( $keyPath, $key ) . ');' );
+                  break;
                 case 'boolean':
                   println( 'assert' . ( $value ? 'True' : 'False' ) . '(' . getKeyPathString( $keyPath, $key ) . ');' );
                   break;
